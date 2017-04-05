@@ -13,7 +13,7 @@ int main()
       if (isPrime(num))
         std::cout << num << " is a prime number " << std::endl;
       else
-        std::cout << num << " is NOT a prime numebr " << std::endl;
+        std::cout << num << " is NOT a prime number " << std::endl;
     }
   } while (num > 0);
 
