@@ -7,17 +7,21 @@ A short program to simulate a ball being dropped off of a tower. To start, the u
 ##### Sample output:
 
 ```
-Enter the initial height of the tower in meters: 100
-At 0 seconds, the ball is at height: 100 meters
-At 1 seconds, the ball is at height: 95.1 meters
-At 2 seconds, the ball is at height: 80.4 meters
-At 3 seconds, the ball is at height: 55.9 meters
-At 4 seconds, the ball is at height: 21.6 meters
-At 5 seconds, the ball is on the ground.
+>Enter the initial height of the tower in meters: 100
+>At 0 seconds, the ball is at height: 100 meters
+>At 1 seconds, the ball is at height: 95.1 meters
+>At 2 seconds, the ball is at height: 80.4 meters
+>At 3 seconds, the ball is at height: 55.9 meters
+>At 4 seconds, the ball is at height: 21.6 meters
+>At 5 seconds, the ball is on the ground.
 ```
 
 ###### Note: Depending on the initial height, the ball may not reach the ground in 5 seconds -- that’s okay. We’ll improve this program once we’ve covered loops.
 ###### Note: The ^ symbol isn’t an exponent in C++. Implement the formula using multiplication instead of exponentiation.
+
+## IsPrime
+
+A function to tell if any given number is prime. It works by testing for initially testing for 0, 1 or 2 case. It then checks if it is divisible by two (time optimization). Afterward, it takes the square root of the number and evaluates its divisibility by all numbers lower than it. If the square root is not divisible by any numbers other than 1 and itself, the number is prime.
 
 
 ## MonsterGenerator
@@ -53,4 +57,107 @@ int main()
  
     return 0;
 }
+```
+
+## OperatorOvld
+
+### Fraction
+
+1. Write a class named Fraction that has a integer numerator and denominator member. Write a print() function that prints out the fraction.
+
+The following code should compile:
+```
+#include <iostream>
+ 
+int main()
+{
+    Fraction f1(1, 4);
+    f1.print();
+ 
+    Fraction f2(1, 2);
+    f2.print();
+}
+```
+This should print:
+```
+>1/4
+>1/2
+```
+
+2. Add overloaded multiplication operators to handle multiplication between a Fraction and integer, and between two Fractions. Use the friend function method.
+
+###### Hint: To multiply two fractions, first multiply the two numerators together, and then multiply the two denominators together. To multiply a fraction and an integer, multiply the numerator of the fraction by the integer and leave the denominator alone.
+
+The following code should compile:
+```
+#include <iostream>
+ 
+int main()
+{
+    Fraction f1(2, 5);
+    f1.print();
+ 
+    Fraction f2(3, 8);
+    f2.print();
+ 
+    Fraction f3 = f1 * f2;
+    f3.print();
+ 
+    Fraction f4 = f1 * 2;
+    f4.print();
+ 
+    Fraction f5 = 2 * f2;
+    f5.print();
+ 
+    Fraction f6 = Fraction(1, 2) * Fraction(2, 3) * Fraction(3, 4);
+    f6.print();
+}
+```
+This should print:
+```
+>2/5
+>3/8
+>6/40
+>4/5
+>6/8
+>6/24
+```
+
+3. Extra credit: the fraction 2/4 is the same as 1/2, but 2/4 is not reduced to the lowest terms. We can reduce any given fraction to lowest terms by finding the greatest common divisor (GCD) between the numerator and denominator, and then dividing both the numerator and denominator by the GCD.
+
+The following should compile:
+```
+#include <iostream>
+ 
+int main()
+{
+    Fraction f1(2, 5);
+    f1.print();
+ 
+    Fraction f2(3, 8);
+    f2.print();
+ 
+    Fraction f3 = f1 * f2;
+    f3.print();
+ 
+    Fraction f4 = f1 * 2;
+    f4.print();
+ 
+    Fraction f5 = 2 * f2;
+    f5.print();
+ 
+    Fraction f6 = Fraction(1, 2) * Fraction(2, 3) * Fraction(3, 4);
+    f6.print();
+ 
+    return 0;
+}
+```
+And produce the result:
+```
+>2/5
+>3/8
+>3/20
+>4/5
+>3/4
+>1/4
 ```
